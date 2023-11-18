@@ -7,6 +7,9 @@ A small demo scene to showcase an RTS selection circle shader with configurable 
 # 🤖 Godot 
 https://godotengine.org/
 
+# 🎬 Youtube Showcase
+https://www.youtube.com/watch?v=6GeATu8P6DE
+
 # 💻 Source Code
 - Shader
  https://gist.github.com/trflorian/52c5ceb7313609e0df9d0a246eaf6745
