@@ -1,6 +1,5 @@
-[gd_scene load_steps=46 format=3 uid="uid://c2fi2jmwvuesn"]
+[gd_scene load_steps=43 format=3 uid="uid://c2fi2jmwvuesn"]
 
-[ext_resource type="Texture2D" uid="uid://1fnou6m6ar1h" path="res://circle.png" id="1_o0bp4"]
 [ext_resource type="Shader" path="res://selection_circle.gdshader" id="2_vom25"]
 [ext_resource type="PackedScene" uid="uid://dni2x1fn8lwne" path="res://Peasant Nolant(Free Version).fbx" id="3_eyni8"]
 [ext_resource type="Texture2D" uid="uid://v0rq8dlyq0h0" path="res://Peasant Nolant Yellow.png" id="4_8w17r"]
@@ -17,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://64fovigq8ud2" path="res://stone/statue_ring.glb" id="14_0akvp"]
 [ext_resource type="PackedScene" uid="uid://cr26d7k1rcrrq" path="res://flower_redA.glb" id="15_2irq2"]
 [ext_resource type="PackedScene" uid="uid://ckdsjximst3n6" path="res://stone/stone_tallG.glb" id="17_sptrd"]
-[ext_resource type="PackedScene" uid="uid://bnbbndrhx0kbx" path="res://grass/grass.glb" id="18_vy46d"]
 [ext_resource type="Script" path="res://pivot_rotate.gd" id="19_shing"]
 [ext_resource type="Script" path="res://camera_shot_points.gd" id="20_c0ler"]
 
@@ -41,20 +39,12 @@ dof_blur_far_enabled = true
 dof_blur_far_distance = 40.0
 dof_blur_far_transition = 20.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6qlod"]
-render_priority = 0
-shader = ExtResource("2_vom25")
-shader_parameter/radius = 2.39
-shader_parameter/thickness = 0.209
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mef34"]
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_itmii"]
 albedo_color = Color(0.516, 0.75, 0.36, 1)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_o156j"]
 
-[sub_resource type="Resource" id="Resource_7r3bo"]
+[sub_resource type="Resource" id="Resource_nsobm"]
 script = ExtResource("6_5lvxe")
 amount = 500
 enabled = true
@@ -63,7 +53,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_6kxaq"]
+[sub_resource type="Resource" id="Resource_u6rx8"]
 script = ExtResource("7_0xv7g")
 position = Vector3(1, 0, 1)
 rotation = Vector3(0, 360, 0)
@@ -74,7 +64,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_6j7mw"]
+[sub_resource type="Resource" id="Resource_8x8d1"]
 script = ExtResource("8_gbcdg")
 iterations = 3
 offset_step = 0.2
@@ -86,9 +76,9 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_xh47x"]
+[sub_resource type="Resource" id="Resource_jmfsk"]
 script = ExtResource("5_16kqx")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_7r3bo"), SubResource("Resource_6kxaq"), SubResource("Resource_6j7mw")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_nsobm"), SubResource("Resource_u6rx8"), SubResource("Resource_8x8d1")])
 
 [sub_resource type="Resource" id="Resource_ys5uy"]
 script = ExtResource("11_a3i4e")
@@ -98,7 +88,7 @@ size = Vector3(55, 1, 55)
 script = ExtResource("12_1qwjt")
 radius = 6.02823
 
-[sub_resource type="Resource" id="Resource_0mdmm"]
+[sub_resource type="Resource" id="Resource_k36pp"]
 script = ExtResource("6_5lvxe")
 amount = 16000
 enabled = true
@@ -107,7 +97,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_x45y6"]
+[sub_resource type="Resource" id="Resource_vp4ib"]
 script = ExtResource("7_0xv7g")
 position = Vector3(1, 0, 1)
 rotation = Vector3(0, 360, 0)
@@ -118,7 +108,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_hr3nw"]
+[sub_resource type="Resource" id="Resource_donf6"]
 script = ExtResource("8_gbcdg")
 iterations = 3
 offset_step = 0.2
@@ -130,9 +120,9 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_xruyg"]
+[sub_resource type="Resource" id="Resource_qve4t"]
 script = ExtResource("5_16kqx")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_0mdmm"), SubResource("Resource_x45y6"), SubResource("Resource_hr3nw")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_k36pp"), SubResource("Resource_vp4ib"), SubResource("Resource_donf6")])
 
 [sub_resource type="Resource" id="Resource_poulw"]
 script = ExtResource("11_a3i4e")
@@ -147,6 +137,8 @@ render_priority = 0
 shader = ExtResource("2_vom25")
 shader_parameter/radius = 0.46
 shader_parameter/thickness = 0.1
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mef34"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_begx0"]
 albedo_texture = ExtResource("4_8w17r")
@@ -179,161 +171,11 @@ camera_attributes = SubResource("CameraAttributesPractical_a1y4f")
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
 
-[node name="SelectionCircleTexture" type="Sprite3D" parent="."]
-transform = Transform3D(0.526745, 0, 0, 0, 0.526745, 0, 0, 0, 0.526745, -5.33755, 0.001, 5.32511)
-visible = false
-modulate = Color(1, 0.168627, 0.0431373, 1)
-axis = 1
-texture = ExtResource("1_o0bp4")
-
-[node name="SelectionCircleShader2" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0136398, 0, 0)
-visible = false
-material_override = SubResource("ShaderMaterial_6qlod")
-modulate = Color(0.560784, 0.501961, 0.211765, 1)
-pixel_size = 20.0
-axis = 1
-texture = SubResource("PlaceholderTexture2D_mef34")
-
 [node name="Ground" type="Sprite3D" parent="."]
 material_override = SubResource("StandardMaterial3D_itmii")
 pixel_size = 100.0
 axis = 1
 texture = SubResource("PlaceholderTexture2D_o156j")
-
-[node name="ProtonScatter" type="Node3D" parent="."]
-script = ExtResource("4_cx1su")
-modifier_stack = SubResource("Resource_xh47x")
-Performance/use_chunks = true
-Performance/chunk_dimensions = Vector3(15, 15, 15)
-
-[node name="ScatterItem3" type="Node3D" parent="ProtonScatter"]
-script = ExtResource("9_hqs3s")
-path = "res://trees/tree_cone.glb"
-
-[node name="ScatterItem4" type="Node3D" parent="ProtonScatter"]
-script = ExtResource("9_hqs3s")
-path = "res://trees/tree_default.glb"
-
-[node name="ScatterItem5" type="Node3D" parent="ProtonScatter"]
-script = ExtResource("9_hqs3s")
-path = "res://stone/stone_tallA.glb"
-
-[node name="ScatterItem6" type="Node3D" parent="ProtonScatter"]
-script = ExtResource("9_hqs3s")
-path = "res://stone/stone_tallB.glb"
-
-[node name="ScatterItem7" type="Node3D" parent="ProtonScatter"]
-script = ExtResource("9_hqs3s")
-path = "res://stone/stone_tallC.glb"
-
-[node name="ScatterItem8" type="Node3D" parent="ProtonScatter"]
-script = ExtResource("9_hqs3s")
-path = "res://stone/stone_tallD.glb"
-
-[node name="ScatterShape" type="Node3D" parent="ProtonScatter"]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
-script = ExtResource("10_ky3vd")
-shape = SubResource("Resource_ys5uy")
-
-[node name="ScatterShape2" type="Node3D" parent="ProtonScatter"]
-script = ExtResource("10_ky3vd")
-negative = true
-shape = SubResource("Resource_4tgca")
-
-[node name="ProtonScatter2" type="Node3D" parent="."]
-script = ExtResource("4_cx1su")
-global_seed = 1
-modifier_stack = SubResource("Resource_xruyg")
-Performance/use_chunks = true
-Performance/chunk_dimensions = Vector3(15, 15, 15)
-
-[node name="ScatterItem3" type="Node3D" parent="ProtonScatter2"]
-script = ExtResource("9_hqs3s")
-path = "res://grass/grass.glb"
-
-[node name="ScatterItem4" type="Node3D" parent="ProtonScatter2"]
-script = ExtResource("9_hqs3s")
-path = "res://grass/grass_large.glb"
-
-[node name="ScatterItem5" type="Node3D" parent="ProtonScatter2"]
-script = ExtResource("9_hqs3s")
-path = "res://grass/grass_leafs.glb"
-
-[node name="ScatterItem6" type="Node3D" parent="ProtonScatter2"]
-script = ExtResource("9_hqs3s")
-path = "res://grass/grass_leafsLarge.glb"
-
-[node name="ScatterShape" type="Node3D" parent="ProtonScatter2"]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
-script = ExtResource("10_ky3vd")
-shape = SubResource("Resource_poulw")
-
-[node name="ScatterShape2" type="Node3D" parent="ProtonScatter2"]
-script = ExtResource("10_ky3vd")
-negative = true
-shape = SubResource("Resource_ab7o2")
-
-[node name="CharacterWithSelectionCircle" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.84171, 0, 1.58768)
-
-[node name="Peasant Nolant(Free Version)" parent="CharacterWithSelectionCircle" instance=ExtResource("3_eyni8")]
-
-[node name="Skeleton3D" parent="CharacterWithSelectionCircle/Peasant Nolant(Free Version)/RootNode/metarig" index="0"]
-bones/3/rotation = Quaternion(-0.0893681, -1.18732e-07, -1.06535e-08, 0.995999)
-
-[node name="AnimationPlayer" parent="CharacterWithSelectionCircle/Peasant Nolant(Free Version)" index="1"]
-autoplay = "metarig|Idle"
-
-[node name="SelectionCircleShader" type="Sprite3D" parent="CharacterWithSelectionCircle"]
-material_override = SubResource("ShaderMaterial_1jhlc")
-modulate = Color(1, 0, 0.0156863, 1)
-pixel_size = 20.0
-axis = 1
-texture = SubResource("PlaceholderTexture2D_mef34")
-
-[node name="CharacterWithSelectionCircle2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0283, 0, 1.69578)
-
-[node name="Peasant Nolant(Free Version)" parent="CharacterWithSelectionCircle2" instance=ExtResource("3_eyni8")]
-
-[node name="Skeleton3D" parent="CharacterWithSelectionCircle2/Peasant Nolant(Free Version)/RootNode/metarig" index="0"]
-bones/3/rotation = Quaternion(-0.0893681, -1.18732e-07, -1.06535e-08, 0.995999)
-
-[node name="Peasant Nolant" parent="CharacterWithSelectionCircle2/Peasant Nolant(Free Version)/RootNode/metarig/Skeleton3D" index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_begx0")
-
-[node name="AnimationPlayer" parent="CharacterWithSelectionCircle2/Peasant Nolant(Free Version)" index="1"]
-autoplay = "metarig|Idle"
-
-[node name="SelectionCircleShader" type="Sprite3D" parent="CharacterWithSelectionCircle2"]
-material_override = SubResource("ShaderMaterial_arfei")
-modulate = Color(0, 0.215686, 1, 1)
-pixel_size = 20.0
-axis = 1
-texture = SubResource("PlaceholderTexture2D_mef34")
-
-[node name="statue_ring" parent="." instance=ExtResource("14_0akvp")]
-transform = Transform3D(2.1, 0, 0, 0, 2.1, 0, 0, 0, 2.1, -0.311486, 4.76837e-07, -1.61119)
-
-[node name="SelectionCircleShader2" type="Sprite3D" parent="statue_ring"]
-transform = Transform3D(0.47619, 0, 0, 0, 0.47619, 0, 0, 0, 0.47619, 0, 0, 0)
-material_override = SubResource("ShaderMaterial_n1pwb")
-modulate = Color(0.556863, 0.588235, 0, 1)
-pixel_size = 20.0
-axis = 1
-texture = SubResource("PlaceholderTexture2D_mef34")
-
-[node name="flower_redA" parent="." instance=ExtResource("15_2irq2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.357279, 0, 2.94195)
-
-[node name="SelectionCircleShader3" type="Sprite3D" parent="flower_redA"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-material_override = SubResource("ShaderMaterial_wdt3f")
-modulate = Color(1, 0.145098, 0.321569, 1)
-pixel_size = 20.0
-axis = 1
-texture = SubResource("PlaceholderTexture2D_mef34")
 
 [node name="Mountains" type="Node3D" parent="."]
 
@@ -463,28 +305,158 @@ transform = Transform3D(-5.30352, 0, -18.854, 0, 19.5857, 0, 18.854, 0, -5.30352
 [node name="stone_tallG12" parent="Mountains" instance=ExtResource("17_sptrd")]
 transform = Transform3D(18.6018, 0, 4.0317, 0, 12.4606, 0, -4.0317, 0, 18.6018, 45.6315, 3.8147e-06, 2.10346)
 
-[node name="grass" parent="." instance=ExtResource("18_vy46d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.3006, 0, 21.3818)
+[node name="ProtonScatter" type="Node3D" parent="."]
+script = ExtResource("4_cx1su")
+modifier_stack = SubResource("Resource_jmfsk")
+Performance/use_chunks = true
+Performance/chunk_dimensions = Vector3(15, 15, 15)
 
-[node name="Pivot" type="Node3D" parent="."]
+[node name="ScatterItem3" type="Node3D" parent="ProtonScatter"]
+script = ExtResource("9_hqs3s")
+path = "res://trees/tree_cone.glb"
+
+[node name="ScatterItem4" type="Node3D" parent="ProtonScatter"]
+script = ExtResource("9_hqs3s")
+path = "res://trees/tree_default.glb"
+
+[node name="ScatterItem5" type="Node3D" parent="ProtonScatter"]
+script = ExtResource("9_hqs3s")
+path = "res://stone/stone_tallA.glb"
+
+[node name="ScatterItem6" type="Node3D" parent="ProtonScatter"]
+script = ExtResource("9_hqs3s")
+path = "res://stone/stone_tallB.glb"
+
+[node name="ScatterItem7" type="Node3D" parent="ProtonScatter"]
+script = ExtResource("9_hqs3s")
+path = "res://stone/stone_tallC.glb"
+
+[node name="ScatterItem8" type="Node3D" parent="ProtonScatter"]
+script = ExtResource("9_hqs3s")
+path = "res://stone/stone_tallD.glb"
+
+[node name="ScatterShape" type="Node3D" parent="ProtonScatter"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+script = ExtResource("10_ky3vd")
+shape = SubResource("Resource_ys5uy")
+
+[node name="ScatterShape2" type="Node3D" parent="ProtonScatter"]
+script = ExtResource("10_ky3vd")
+negative = true
+shape = SubResource("Resource_4tgca")
+
+[node name="ProtonScatter2" type="Node3D" parent="."]
+script = ExtResource("4_cx1su")
+global_seed = 1
+modifier_stack = SubResource("Resource_qve4t")
+Performance/use_chunks = true
+Performance/chunk_dimensions = Vector3(15, 15, 15)
+
+[node name="ScatterItem3" type="Node3D" parent="ProtonScatter2"]
+script = ExtResource("9_hqs3s")
+path = "res://grass/grass.glb"
+
+[node name="ScatterItem4" type="Node3D" parent="ProtonScatter2"]
+script = ExtResource("9_hqs3s")
+path = "res://grass/grass_large.glb"
+
+[node name="ScatterItem5" type="Node3D" parent="ProtonScatter2"]
+script = ExtResource("9_hqs3s")
+path = "res://grass/grass_leafs.glb"
+
+[node name="ScatterItem6" type="Node3D" parent="ProtonScatter2"]
+script = ExtResource("9_hqs3s")
+path = "res://grass/grass_leafsLarge.glb"
+
+[node name="ScatterShape" type="Node3D" parent="ProtonScatter2"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+script = ExtResource("10_ky3vd")
+shape = SubResource("Resource_poulw")
+
+[node name="ScatterShape2" type="Node3D" parent="ProtonScatter2"]
+script = ExtResource("10_ky3vd")
+negative = true
+shape = SubResource("Resource_ab7o2")
+
+[node name="CharacterWithSelectionCircle1" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.84171, 0, 1.58768)
+
+[node name="Peasant Nolant(Free Version)" parent="CharacterWithSelectionCircle1" instance=ExtResource("3_eyni8")]
+
+[node name="Skeleton3D" parent="CharacterWithSelectionCircle1/Peasant Nolant(Free Version)/RootNode/metarig" index="0"]
+bones/3/rotation = Quaternion(-0.0893681, -1.18732e-07, -1.06535e-08, 0.995999)
+
+[node name="AnimationPlayer" parent="CharacterWithSelectionCircle1/Peasant Nolant(Free Version)" index="1"]
+autoplay = "metarig|Idle"
+
+[node name="SelectionCircleShader" type="Sprite3D" parent="CharacterWithSelectionCircle1"]
+material_override = SubResource("ShaderMaterial_1jhlc")
+modulate = Color(1, 0, 0.0156863, 1)
+pixel_size = 20.0
+axis = 1
+texture = SubResource("PlaceholderTexture2D_mef34")
+
+[node name="CharacterWithSelectionCircle2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0283, 0, 1.69578)
+
+[node name="Peasant Nolant(Free Version)" parent="CharacterWithSelectionCircle2" instance=ExtResource("3_eyni8")]
+
+[node name="Skeleton3D" parent="CharacterWithSelectionCircle2/Peasant Nolant(Free Version)/RootNode/metarig" index="0"]
+bones/3/rotation = Quaternion(-0.0893681, -1.18732e-07, -1.06535e-08, 0.995999)
+
+[node name="Peasant Nolant" parent="CharacterWithSelectionCircle2/Peasant Nolant(Free Version)/RootNode/metarig/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_begx0")
+
+[node name="AnimationPlayer" parent="CharacterWithSelectionCircle2/Peasant Nolant(Free Version)" index="1"]
+autoplay = "metarig|Idle"
+
+[node name="SelectionCircleShader" type="Sprite3D" parent="CharacterWithSelectionCircle2"]
+material_override = SubResource("ShaderMaterial_arfei")
+modulate = Color(0, 0.215686, 1, 1)
+pixel_size = 20.0
+axis = 1
+texture = SubResource("PlaceholderTexture2D_mef34")
+
+[node name="Statue" parent="." instance=ExtResource("14_0akvp")]
+transform = Transform3D(2.1, 0, 0, 0, 2.1, 0, 0, 0, 2.1, -0.311486, 4.76837e-07, -1.61119)
+
+[node name="SelectionCircleShader2" type="Sprite3D" parent="Statue"]
+transform = Transform3D(0.47619, 0, 0, 0, 0.47619, 0, 0, 0, 0.47619, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_n1pwb")
+modulate = Color(0.556863, 0.588235, 0, 1)
+pixel_size = 20.0
+axis = 1
+texture = SubResource("PlaceholderTexture2D_mef34")
+
+[node name="Flower" parent="." instance=ExtResource("15_2irq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.357279, 0, 2.94195)
+
+[node name="SelectionCircleShader3" type="Sprite3D" parent="Flower"]
+material_override = SubResource("ShaderMaterial_wdt3f")
+modulate = Color(1, 0.145098, 0.321569, 1)
+pixel_size = 20.0
+axis = 1
+texture = SubResource("PlaceholderTexture2D_mef34")
+
+[node name="CameraShot1 - Pivot" type="Node3D" parent="."]
 script = ExtResource("19_shing")
 
-[node name="Camera3D" type="Camera3D" parent="Pivot"]
+[node name="Camera3D" type="Camera3D" parent="CameraShot1 - Pivot"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 4.02422, 6.1393)
 current = true
 
-[node name="ShotLinear" type="Node3D" parent="."]
+[node name="CameraShot2 - Linear" type="Node3D" parent="."]
 
-[node name="Point1" type="Node3D" parent="ShotLinear"]
+[node name="Point1" type="Node3D" parent="CameraShot2 - Linear"]
 transform = Transform3D(0.999391, -0.00033228, -0.0348955, 0, 0.999955, -0.00952172, 0.0348971, 0.00951592, 0.999346, -0.0380773, 0.545262, -2.57753)
 
-[node name="Point2" type="Node3D" parent="ShotLinear"]
+[node name="Point2" type="Node3D" parent="CameraShot2 - Linear"]
 transform = Transform3D(0.999962, 0.0070315, -0.0051643, 0, 0.59195, 0.805975, 0.00872422, -0.805944, 0.591928, -0.356044, 21.7447, 16.2706)
 
-[node name="Camera3D" type="Camera3D" parent="ShotLinear" node_paths=PackedStringArray("point1", "point2")]
+[node name="Camera3D" type="Camera3D" parent="CameraShot2 - Linear" node_paths=PackedStringArray("point1", "point2")]
 script = ExtResource("20_c0ler")
 point1 = NodePath("../Point1")
 point2 = NodePath("../Point2")
 
-[editable path="CharacterWithSelectionCircle/Peasant Nolant(Free Version)"]
+[editable path="CharacterWithSelectionCircle1/Peasant Nolant(Free Version)"]
 [editable path="CharacterWithSelectionCircle2/Peasant Nolant(Free Version)"]
