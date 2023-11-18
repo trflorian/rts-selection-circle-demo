@@ -1,8 +1,7 @@
-[gd_scene load_steps=43 format=3 uid="uid://c2fi2jmwvuesn"]
+[gd_scene load_steps=44 format=3 uid="uid://c2fi2jmwvuesn"]
 
-[ext_resource type="Shader" path="res://selection_circle.gdshader" id="2_vom25"]
-[ext_resource type="PackedScene" uid="uid://dni2x1fn8lwne" path="res://Peasant Nolant(Free Version).fbx" id="3_eyni8"]
-[ext_resource type="Texture2D" uid="uid://v0rq8dlyq0h0" path="res://Peasant Nolant Yellow.png" id="4_8w17r"]
+[ext_resource type="PackedScene" uid="uid://dni2x1fn8lwne" path="res://character/Peasant Nolant(Free Version).fbx" id="3_eyni8"]
+[ext_resource type="Texture2D" uid="uid://v0rq8dlyq0h0" path="res://character/Peasant Nolant Yellow.png" id="4_8w17r"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/scatter.gd" id="4_cx1su"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="5_16kqx"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/create_inside_random.gd" id="6_5lvxe"]
@@ -13,11 +12,13 @@
 [ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_shape.gd" id="10_ky3vd"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/box_shape.gd" id="11_a3i4e"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/sphere_shape.gd" id="12_1qwjt"]
+[ext_resource type="Material" uid="uid://d3n5wu3yanggn" path="res://character/peasont_mat.tres" id="13_yu038"]
 [ext_resource type="PackedScene" uid="uid://64fovigq8ud2" path="res://stone/statue_ring.glb" id="14_0akvp"]
-[ext_resource type="PackedScene" uid="uid://cr26d7k1rcrrq" path="res://flower_redA.glb" id="15_2irq2"]
+[ext_resource type="Shader" path="res://shader/selection_circle.gdshader" id="14_l212n"]
+[ext_resource type="PackedScene" uid="uid://cr26d7k1rcrrq" path="res://flowers/flower_redA.glb" id="15_2irq2"]
 [ext_resource type="PackedScene" uid="uid://ckdsjximst3n6" path="res://stone/stone_tallG.glb" id="17_sptrd"]
-[ext_resource type="Script" path="res://pivot_rotate.gd" id="19_shing"]
-[ext_resource type="Script" path="res://camera_shot_points.gd" id="20_c0ler"]
+[ext_resource type="Script" path="res://scripts/pivot_rotate.gd" id="18_7ert4"]
+[ext_resource type="Script" path="res://scripts/camera_shot_points.gd" id="19_nrh4l"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k4h1d"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -44,7 +45,7 @@ albedo_color = Color(0.516, 0.75, 0.36, 1)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_o156j"]
 
-[sub_resource type="Resource" id="Resource_nsobm"]
+[sub_resource type="Resource" id="Resource_trhxd"]
 script = ExtResource("6_5lvxe")
 amount = 500
 enabled = true
@@ -53,7 +54,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_u6rx8"]
+[sub_resource type="Resource" id="Resource_nwhuo"]
 script = ExtResource("7_0xv7g")
 position = Vector3(1, 0, 1)
 rotation = Vector3(0, 360, 0)
@@ -64,7 +65,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_8x8d1"]
+[sub_resource type="Resource" id="Resource_v1kx8"]
 script = ExtResource("8_gbcdg")
 iterations = 3
 offset_step = 0.2
@@ -76,9 +77,9 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_jmfsk"]
+[sub_resource type="Resource" id="Resource_7r8o3"]
 script = ExtResource("5_16kqx")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_nsobm"), SubResource("Resource_u6rx8"), SubResource("Resource_8x8d1")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_trhxd"), SubResource("Resource_nwhuo"), SubResource("Resource_v1kx8")])
 
 [sub_resource type="Resource" id="Resource_ys5uy"]
 script = ExtResource("11_a3i4e")
@@ -88,7 +89,7 @@ size = Vector3(55, 1, 55)
 script = ExtResource("12_1qwjt")
 radius = 6.02823
 
-[sub_resource type="Resource" id="Resource_k36pp"]
+[sub_resource type="Resource" id="Resource_5i66i"]
 script = ExtResource("6_5lvxe")
 amount = 16000
 enabled = true
@@ -97,7 +98,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_vp4ib"]
+[sub_resource type="Resource" id="Resource_vrab5"]
 script = ExtResource("7_0xv7g")
 position = Vector3(1, 0, 1)
 rotation = Vector3(0, 360, 0)
@@ -108,7 +109,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_donf6"]
+[sub_resource type="Resource" id="Resource_wh5gh"]
 script = ExtResource("8_gbcdg")
 iterations = 3
 offset_step = 0.2
@@ -120,9 +121,9 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_qve4t"]
+[sub_resource type="Resource" id="Resource_mne5l"]
 script = ExtResource("5_16kqx")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_k36pp"), SubResource("Resource_vp4ib"), SubResource("Resource_donf6")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_5i66i"), SubResource("Resource_vrab5"), SubResource("Resource_wh5gh")])
 
 [sub_resource type="Resource" id="Resource_poulw"]
 script = ExtResource("11_a3i4e")
@@ -134,7 +135,7 @@ radius = 5.9526
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1jhlc"]
 render_priority = 0
-shader = ExtResource("2_vom25")
+shader = ExtResource("14_l212n")
 shader_parameter/radius = 0.46
 shader_parameter/thickness = 0.1
 
@@ -145,19 +146,19 @@ albedo_texture = ExtResource("4_8w17r")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_arfei"]
 render_priority = 0
-shader = ExtResource("2_vom25")
+shader = ExtResource("14_l212n")
 shader_parameter/radius = 0.643
 shader_parameter/thickness = 0.396
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n1pwb"]
 render_priority = 0
-shader = ExtResource("2_vom25")
+shader = ExtResource("14_l212n")
 shader_parameter/radius = 2.0
 shader_parameter/thickness = 0.1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wdt3f"]
 render_priority = 0
-shader = ExtResource("2_vom25")
+shader = ExtResource("14_l212n")
 shader_parameter/radius = 0.3
 shader_parameter/thickness = 0.15
 
@@ -307,7 +308,7 @@ transform = Transform3D(18.6018, 0, 4.0317, 0, 12.4606, 0, -4.0317, 0, 18.6018, 
 
 [node name="ProtonScatter" type="Node3D" parent="."]
 script = ExtResource("4_cx1su")
-modifier_stack = SubResource("Resource_jmfsk")
+modifier_stack = SubResource("Resource_7r8o3")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -348,7 +349,7 @@ shape = SubResource("Resource_4tgca")
 [node name="ProtonScatter2" type="Node3D" parent="."]
 script = ExtResource("4_cx1su")
 global_seed = 1
-modifier_stack = SubResource("Resource_qve4t")
+modifier_stack = SubResource("Resource_mne5l")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -386,6 +387,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.84171, 0, 1.58768)
 [node name="Skeleton3D" parent="CharacterWithSelectionCircle1/Peasant Nolant(Free Version)/RootNode/metarig" index="0"]
 bones/3/rotation = Quaternion(-0.0893681, -1.18732e-07, -1.06535e-08, 0.995999)
 
+[node name="Peasant Nolant" parent="CharacterWithSelectionCircle1/Peasant Nolant(Free Version)/RootNode/metarig/Skeleton3D" index="0"]
+surface_material_override/0 = ExtResource("13_yu038")
+
+[node name="Hat" parent="CharacterWithSelectionCircle1/Peasant Nolant(Free Version)/RootNode/metarig/Skeleton3D" index="1"]
+surface_material_override/0 = ExtResource("13_yu038")
+
 [node name="AnimationPlayer" parent="CharacterWithSelectionCircle1/Peasant Nolant(Free Version)" index="1"]
 autoplay = "metarig|Idle"
 
@@ -406,6 +413,9 @@ bones/3/rotation = Quaternion(-0.0893681, -1.18732e-07, -1.06535e-08, 0.995999)
 
 [node name="Peasant Nolant" parent="CharacterWithSelectionCircle2/Peasant Nolant(Free Version)/RootNode/metarig/Skeleton3D" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_begx0")
+
+[node name="Hat" parent="CharacterWithSelectionCircle2/Peasant Nolant(Free Version)/RootNode/metarig/Skeleton3D" index="1"]
+surface_material_override/0 = ExtResource("13_yu038")
 
 [node name="AnimationPlayer" parent="CharacterWithSelectionCircle2/Peasant Nolant(Free Version)" index="1"]
 autoplay = "metarig|Idle"
@@ -439,7 +449,7 @@ axis = 1
 texture = SubResource("PlaceholderTexture2D_mef34")
 
 [node name="CameraShot1 - Pivot" type="Node3D" parent="."]
-script = ExtResource("19_shing")
+script = ExtResource("18_7ert4")
 
 [node name="Camera3D" type="Camera3D" parent="CameraShot1 - Pivot"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 4.02422, 6.1393)
@@ -454,7 +464,7 @@ transform = Transform3D(0.999391, -0.00033228, -0.0348955, 0, 0.999955, -0.00952
 transform = Transform3D(0.999962, 0.0070315, -0.0051643, 0, 0.59195, 0.805975, 0.00872422, -0.805944, 0.591928, -0.356044, 21.7447, 16.2706)
 
 [node name="Camera3D" type="Camera3D" parent="CameraShot2 - Linear" node_paths=PackedStringArray("point1", "point2")]
-script = ExtResource("20_c0ler")
+script = ExtResource("19_nrh4l")
 point1 = NodePath("../Point1")
 point2 = NodePath("../Point2")
 
