@@ -1,0 +1,490 @@
+[gd_scene load_steps=46 format=3 uid="uid://c2fi2jmwvuesn"]
+
+[ext_resource type="Texture2D" uid="uid://1fnou6m6ar1h" path="res://circle.png" id="1_o0bp4"]
+[ext_resource type="Shader" path="res://selection_circle.gdshader" id="2_vom25"]
+[ext_resource type="PackedScene" uid="uid://dni2x1fn8lwne" path="res://Peasant Nolant(Free Version).fbx" id="3_eyni8"]
+[ext_resource type="Texture2D" uid="uid://v0rq8dlyq0h0" path="res://Peasant Nolant Yellow.png" id="4_8w17r"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter.gd" id="4_cx1su"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="5_16kqx"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/create_inside_random.gd" id="6_5lvxe"]
+[ext_resource type="PackedScene" uid="uid://daamu7ocsx7lm" path="res://stone/stone_tallE.glb" id="6_de735"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/randomize_transforms.gd" id="7_0xv7g"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/relax.gd" id="8_gbcdg"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_item.gd" id="9_hqs3s"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_shape.gd" id="10_ky3vd"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/box_shape.gd" id="11_a3i4e"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/sphere_shape.gd" id="12_1qwjt"]
+[ext_resource type="PackedScene" uid="uid://64fovigq8ud2" path="res://stone/statue_ring.glb" id="14_0akvp"]
+[ext_resource type="PackedScene" uid="uid://cr26d7k1rcrrq" path="res://flower_redA.glb" id="15_2irq2"]
+[ext_resource type="PackedScene" uid="uid://ckdsjximst3n6" path="res://stone/stone_tallG.glb" id="17_sptrd"]
+[ext_resource type="PackedScene" uid="uid://bnbbndrhx0kbx" path="res://grass/grass.glb" id="18_vy46d"]
+[ext_resource type="Script" path="res://pivot_rotate.gd" id="19_shing"]
+[ext_resource type="Script" path="res://camera_shot_points.gd" id="20_c0ler"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k4h1d"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_fk8rj"]
+sky_material = SubResource("ProceduralSkyMaterial_k4h1d")
+
+[sub_resource type="Environment" id="Environment_n3j4h"]
+background_mode = 2
+sky = SubResource("Sky_fk8rj")
+tonemap_mode = 2
+ssao_enabled = true
+fog_light_color = Color(0.568627, 0.690196, 0.870588, 1)
+adjustment_enabled = true
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_a1y4f"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 40.0
+dof_blur_far_transition = 20.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6qlod"]
+render_priority = 0
+shader = ExtResource("2_vom25")
+shader_parameter/radius = 2.39
+shader_parameter/thickness = 0.209
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mef34"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_itmii"]
+albedo_color = Color(0.516, 0.75, 0.36, 1)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_o156j"]
+
+[sub_resource type="Resource" id="Resource_7r3bo"]
+script = ExtResource("6_5lvxe")
+amount = 500
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = true
+reference_frame = 1
+
+[sub_resource type="Resource" id="Resource_6kxaq"]
+script = ExtResource("7_0xv7g")
+position = Vector3(1, 0, 1)
+rotation = Vector3(0, 360, 0)
+scale = Vector3(0.1, 0.2, 0.1)
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_6j7mw"]
+script = ExtResource("8_gbcdg")
+iterations = 3
+offset_step = 0.2
+consecutive_step_multiplier = 0.75
+use_computeshader = true
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = true
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_xh47x"]
+script = ExtResource("5_16kqx")
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_7r3bo"), SubResource("Resource_6kxaq"), SubResource("Resource_6j7mw")])
+
+[sub_resource type="Resource" id="Resource_ys5uy"]
+script = ExtResource("11_a3i4e")
+size = Vector3(55, 1, 55)
+
+[sub_resource type="Resource" id="Resource_4tgca"]
+script = ExtResource("12_1qwjt")
+radius = 6.02823
+
+[sub_resource type="Resource" id="Resource_0mdmm"]
+script = ExtResource("6_5lvxe")
+amount = 16000
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = true
+reference_frame = 1
+
+[sub_resource type="Resource" id="Resource_x45y6"]
+script = ExtResource("7_0xv7g")
+position = Vector3(1, 0, 1)
+rotation = Vector3(0, 360, 0)
+scale = Vector3(0.1, 0.2, 0.1)
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_hr3nw"]
+script = ExtResource("8_gbcdg")
+iterations = 3
+offset_step = 0.2
+consecutive_step_multiplier = 0.75
+use_computeshader = true
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = true
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_xruyg"]
+script = ExtResource("5_16kqx")
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_0mdmm"), SubResource("Resource_x45y6"), SubResource("Resource_hr3nw")])
+
+[sub_resource type="Resource" id="Resource_poulw"]
+script = ExtResource("11_a3i4e")
+size = Vector3(55, 1, 55)
+
+[sub_resource type="Resource" id="Resource_ab7o2"]
+script = ExtResource("12_1qwjt")
+radius = 5.9526
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1jhlc"]
+render_priority = 0
+shader = ExtResource("2_vom25")
+shader_parameter/radius = 0.46
+shader_parameter/thickness = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_begx0"]
+albedo_texture = ExtResource("4_8w17r")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_arfei"]
+render_priority = 0
+shader = ExtResource("2_vom25")
+shader_parameter/radius = 0.643
+shader_parameter/thickness = 0.396
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n1pwb"]
+render_priority = 0
+shader = ExtResource("2_vom25")
+shader_parameter/radius = 2.0
+shader_parameter/thickness = 0.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wdt3f"]
+render_priority = 0
+shader = ExtResource("2_vom25")
+shader_parameter/radius = 0.3
+shader_parameter/thickness = 0.15
+
+[node name="World" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_n3j4h")
+camera_attributes = SubResource("CameraAttributesPractical_a1y4f")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="SelectionCircleTexture" type="Sprite3D" parent="."]
+transform = Transform3D(0.526745, 0, 0, 0, 0.526745, 0, 0, 0, 0.526745, -5.33755, 0.001, 5.32511)
+visible = false
+modulate = Color(1, 0.168627, 0.0431373, 1)
+axis = 1
+texture = ExtResource("1_o0bp4")
+
+[node name="SelectionCircleShader2" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0136398, 0, 0)
+visible = false
+material_override = SubResource("ShaderMaterial_6qlod")
+modulate = Color(0.560784, 0.501961, 0.211765, 1)
+pixel_size = 20.0
+axis = 1
+texture = SubResource("PlaceholderTexture2D_mef34")
+
+[node name="Ground" type="Sprite3D" parent="."]
+material_override = SubResource("StandardMaterial3D_itmii")
+pixel_size = 100.0
+axis = 1
+texture = SubResource("PlaceholderTexture2D_o156j")
+
+[node name="ProtonScatter" type="Node3D" parent="."]
+script = ExtResource("4_cx1su")
+modifier_stack = SubResource("Resource_xh47x")
+Performance/use_chunks = true
+Performance/chunk_dimensions = Vector3(15, 15, 15)
+
+[node name="ScatterItem3" type="Node3D" parent="ProtonScatter"]
+script = ExtResource("9_hqs3s")
+path = "res://trees/tree_cone.glb"
+
+[node name="ScatterItem4" type="Node3D" parent="ProtonScatter"]
+script = ExtResource("9_hqs3s")
+path = "res://trees/tree_default.glb"
+
+[node name="ScatterItem5" type="Node3D" parent="ProtonScatter"]
+script = ExtResource("9_hqs3s")
+path = "res://stone/stone_tallA.glb"
+
+[node name="ScatterItem6" type="Node3D" parent="ProtonScatter"]
+script = ExtResource("9_hqs3s")
+path = "res://stone/stone_tallB.glb"
+
+[node name="ScatterItem7" type="Node3D" parent="ProtonScatter"]
+script = ExtResource("9_hqs3s")
+path = "res://stone/stone_tallC.glb"
+
+[node name="ScatterItem8" type="Node3D" parent="ProtonScatter"]
+script = ExtResource("9_hqs3s")
+path = "res://stone/stone_tallD.glb"
+
+[node name="ScatterShape" type="Node3D" parent="ProtonScatter"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+script = ExtResource("10_ky3vd")
+shape = SubResource("Resource_ys5uy")
+
+[node name="ScatterShape2" type="Node3D" parent="ProtonScatter"]
+script = ExtResource("10_ky3vd")
+negative = true
+shape = SubResource("Resource_4tgca")
+
+[node name="ProtonScatter2" type="Node3D" parent="."]
+script = ExtResource("4_cx1su")
+global_seed = 1
+modifier_stack = SubResource("Resource_xruyg")
+Performance/use_chunks = true
+Performance/chunk_dimensions = Vector3(15, 15, 15)
+
+[node name="ScatterItem3" type="Node3D" parent="ProtonScatter2"]
+script = ExtResource("9_hqs3s")
+path = "res://grass/grass.glb"
+
+[node name="ScatterItem4" type="Node3D" parent="ProtonScatter2"]
+script = ExtResource("9_hqs3s")
+path = "res://grass/grass_large.glb"
+
+[node name="ScatterItem5" type="Node3D" parent="ProtonScatter2"]
+script = ExtResource("9_hqs3s")
+path = "res://grass/grass_leafs.glb"
+
+[node name="ScatterItem6" type="Node3D" parent="ProtonScatter2"]
+script = ExtResource("9_hqs3s")
+path = "res://grass/grass_leafsLarge.glb"
+
+[node name="ScatterShape" type="Node3D" parent="ProtonScatter2"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+script = ExtResource("10_ky3vd")
+shape = SubResource("Resource_poulw")
+
+[node name="ScatterShape2" type="Node3D" parent="ProtonScatter2"]
+script = ExtResource("10_ky3vd")
+negative = true
+shape = SubResource("Resource_ab7o2")
+
+[node name="CharacterWithSelectionCircle" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.84171, 0, 1.58768)
+
+[node name="Peasant Nolant(Free Version)" parent="CharacterWithSelectionCircle" instance=ExtResource("3_eyni8")]
+
+[node name="Skeleton3D" parent="CharacterWithSelectionCircle/Peasant Nolant(Free Version)/RootNode/metarig" index="0"]
+bones/3/rotation = Quaternion(-0.0893681, -1.18732e-07, -1.06535e-08, 0.995999)
+
+[node name="AnimationPlayer" parent="CharacterWithSelectionCircle/Peasant Nolant(Free Version)" index="1"]
+autoplay = "metarig|Idle"
+
+[node name="SelectionCircleShader" type="Sprite3D" parent="CharacterWithSelectionCircle"]
+material_override = SubResource("ShaderMaterial_1jhlc")
+modulate = Color(1, 0, 0.0156863, 1)
+pixel_size = 20.0
+axis = 1
+texture = SubResource("PlaceholderTexture2D_mef34")
+
+[node name="CharacterWithSelectionCircle2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0283, 0, 1.69578)
+
+[node name="Peasant Nolant(Free Version)" parent="CharacterWithSelectionCircle2" instance=ExtResource("3_eyni8")]
+
+[node name="Skeleton3D" parent="CharacterWithSelectionCircle2/Peasant Nolant(Free Version)/RootNode/metarig" index="0"]
+bones/3/rotation = Quaternion(-0.0893681, -1.18732e-07, -1.06535e-08, 0.995999)
+
+[node name="Peasant Nolant" parent="CharacterWithSelectionCircle2/Peasant Nolant(Free Version)/RootNode/metarig/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_begx0")
+
+[node name="AnimationPlayer" parent="CharacterWithSelectionCircle2/Peasant Nolant(Free Version)" index="1"]
+autoplay = "metarig|Idle"
+
+[node name="SelectionCircleShader" type="Sprite3D" parent="CharacterWithSelectionCircle2"]
+material_override = SubResource("ShaderMaterial_arfei")
+modulate = Color(0, 0.215686, 1, 1)
+pixel_size = 20.0
+axis = 1
+texture = SubResource("PlaceholderTexture2D_mef34")
+
+[node name="statue_ring" parent="." instance=ExtResource("14_0akvp")]
+transform = Transform3D(2.1, 0, 0, 0, 2.1, 0, 0, 0, 2.1, -0.311486, 4.76837e-07, -1.61119)
+
+[node name="SelectionCircleShader2" type="Sprite3D" parent="statue_ring"]
+transform = Transform3D(0.47619, 0, 0, 0, 0.47619, 0, 0, 0, 0.47619, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_n1pwb")
+modulate = Color(0.556863, 0.588235, 0, 1)
+pixel_size = 20.0
+axis = 1
+texture = SubResource("PlaceholderTexture2D_mef34")
+
+[node name="flower_redA" parent="." instance=ExtResource("15_2irq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.357279, 0, 2.94195)
+
+[node name="SelectionCircleShader3" type="Sprite3D" parent="flower_redA"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_wdt3f")
+modulate = Color(1, 0.145098, 0.321569, 1)
+pixel_size = 20.0
+axis = 1
+texture = SubResource("PlaceholderTexture2D_mef34")
+
+[node name="Mountains" type="Node3D" parent="."]
+
+[node name="stone_tallE" parent="Mountains" instance=ExtResource("6_de735")]
+transform = Transform3D(12.9386, 0, 0, 0, 12.9386, 0, 0, 0, 12.9386, -19.7742, 0, -35.6769)
+
+[node name="stone_tallE2" parent="Mountains" instance=ExtResource("6_de735")]
+transform = Transform3D(11.9977, 0, 0, 0, 12.9386, 0, 0, 0, 12.9386, -10.1472, 0, -38.0477)
+
+[node name="stone_tallE3" parent="Mountains" instance=ExtResource("6_de735")]
+transform = Transform3D(5.55954, 0, 8.06021, 0, 8.78103, 0, -8.06021, 0, 5.55954, -5.4776, 0, -32.5185)
+
+[node name="stone_tallE4" parent="Mountains" instance=ExtResource("6_de735")]
+transform = Transform3D(10.6239, 0, 5.37425, 0, 12.9386, 0, -4.20931, 0, 13.5641, 15.9839, 0, -29.5449)
+
+[node name="stone_tallE5" parent="Mountains" instance=ExtResource("6_de735")]
+transform = Transform3D(10.7817, 0, 0, 0, 10.7817, 0, 0, 0, 10.7817, 8.38501, 0, -32.0971)
+
+[node name="stone_tallG" parent="Mountains" instance=ExtResource("17_sptrd")]
+transform = Transform3D(9.70398, 0, 0, 0, 9.70398, 0, 0, 0, 9.70398, 1.94863, 0, -35.4129)
+
+[node name="stone_tallG2" parent="Mountains" instance=ExtResource("17_sptrd")]
+transform = Transform3D(-4.41861, 0, 8.33124, 0, 6.17378, 0, -8.33124, 0, -4.41861, -23.688, 0, -29.0931)
+
+[node name="stone_tallE6" parent="Mountains" instance=ExtResource("6_de735")]
+transform = Transform3D(20.4172, 0, -3.13777, 0, 20.6569, 0, 3.13777, 0, 20.4172, 7.64543, 3.8147e-06, -47.7081)
+
+[node name="stone_tallE7" parent="Mountains" instance=ExtResource("6_de735")]
+transform = Transform3D(18.9325, 0, -3.13777, 0, 20.6569, 0, 2.90959, 0, 20.4172, 20.8006, 3.8147e-06, -38.9048)
+
+[node name="stone_tallE8" parent="Mountains" instance=ExtResource("6_de735")]
+transform = Transform3D(10.7277, 0, 11.3708, 0, 14.0192, 0, -11.3708, 0, 10.7277, 19.3039, 3.8147e-06, -27.4477)
+
+[node name="stone_tallE9" parent="Mountains" instance=ExtResource("6_de735")]
+transform = Transform3D(17.7854, 0, 5.19112, 0, 20.6569, 0, -4.06589, 0, 22.7075, 38.8899, 3.8147e-06, 1.06439)
+
+[node name="stone_tallE10" parent="Mountains" instance=ExtResource("6_de735")]
+transform = Transform3D(17.0135, 0, -2.61468, 0, 17.2132, 0, 2.61468, 0, 17.0135, 33.7235, 3.8147e-06, -10.6443)
+
+[node name="stone_tallG3" parent="Mountains" instance=ExtResource("17_sptrd")]
+transform = Transform3D(15.3129, 0, -2.35332, 0, 15.4927, 0, 2.35332, 0, 15.3129, 30.7084, 3.8147e-06, -21.8033)
+
+[node name="stone_tallG4" parent="Mountains" instance=ExtResource("17_sptrd")]
+transform = Transform3D(-4.95216, 0, 14.2183, 0, 9.85662, 0, -14.2183, 0, -4.95216, -4.33103, 3.8147e-06, -45.2398)
+
+[node name="stone_tallE11" parent="Mountains" instance=ExtResource("6_de735")]
+transform = Transform3D(4.78046, 0, 25.673, 0, 26.1143, 0, -25.673, 0, 4.78046, -49.5686, 3.8147e-06, -17.1386)
+
+[node name="stone_tallE12" parent="Mountains" instance=ExtResource("6_de735")]
+transform = Transform3D(4.43282, 0, 25.673, 0, 26.1142, 0, -23.806, 0, 4.78046, -42.7217, 3.8147e-06, -33.4093)
+
+[node name="stone_tallE13" parent="Mountains" instance=ExtResource("6_de735")]
+transform = Transform3D(-13.9391, 0, 14.0093, 0, 17.7229, 0, -14.0093, 0, -13.9391, -28.3049, 3.8147e-06, -31.0603)
+
+[node name="stone_tallE14" parent="Mountains" instance=ExtResource("6_de735")]
+transform = Transform3D(-4.42693, 0, 28.8997, 0, 26.1142, 0, -22.6353, 0, -5.65208, 8.5043, 3.8147e-06, -54.6693)
+
+[node name="stone_tallE15" parent="Mountains" instance=ExtResource("6_de735")]
+transform = Transform3D(3.98352, 0, 21.3931, 0, 21.7608, 0, -21.3931, 0, 3.98352, -6.49666, 3.8147e-06, -48.609)
+
+[node name="stone_tallG5" parent="Mountains" instance=ExtResource("17_sptrd")]
+transform = Transform3D(3.58534, 0, 19.2547, 0, 19.5857, 0, -19.2547, 0, 3.58534, -20.7173, 3.8147e-06, -45.2451)
+
+[node name="stone_tallG6" parent="Mountains" instance=ExtResource("17_sptrd")]
+transform = Transform3D(-18.1635, 0, -5.6893, 0, 12.4606, 0, 5.6893, 0, -18.1635, -51.7305, 3.8147e-06, -1.90705)
+
+[node name="stone_tallE16" parent="Mountains" instance=ExtResource("6_de735")]
+transform = Transform3D(-12.8861, 0, 1.16434, 0, 12.9386, 0, -1.16434, 0, -12.8861, 10.7659, 0, 32.8605)
+
+[node name="stone_tallE17" parent="Mountains" instance=ExtResource("6_de735")]
+transform = Transform3D(-11.9491, 0, 1.16434, 0, 12.9386, 0, -1.07967, 0, -12.8861, 0.964586, 0, 34.3554)
+
+[node name="stone_tallE18" parent="Mountains" instance=ExtResource("6_de735")]
+transform = Transform3D(-6.26232, 0, -7.52721, 0, 8.78103, 0, 7.52721, 0, -6.26232, -3.18846, 0, 28.4284)
+
+[node name="stone_tallE19" parent="Mountains" instance=ExtResource("6_de735")]
+transform = Transform3D(-10.9596, 0, -4.13181, 0, 12.9386, 0, 3.23619, 0, -13.9927, -24.2953, 0, 23.5356)
+
+[node name="stone_tallE20" parent="Mountains" instance=ExtResource("6_de735")]
+transform = Transform3D(-10.7379, 0, 0.970237, 0, 10.7817, 0, -0.970237, 0, -10.7379, -16.9569, 0, 26.7613)
+
+[node name="stone_tallG7" parent="Mountains" instance=ExtResource("17_sptrd")]
+transform = Transform3D(-9.66461, 0, 0.873256, 0, 9.70398, 0, -0.873256, 0, -9.66461, -10.845, 0, 30.6428)
+
+[node name="stone_tallG8" parent="Mountains" instance=ExtResource("17_sptrd")]
+transform = Transform3D(3.65096, 0, -8.69506, 0, 6.17378, 0, 8.69506, 0, 3.65096, 15.2563, 0, 26.6557)
+
+[node name="stone_tallE21" parent="Mountains" instance=ExtResource("6_de735")]
+transform = Transform3D(-20.052, 0, 4.96237, 0, 20.6569, 0, -4.96237, 0, -20.052, -17.6251, 3.8147e-06, 42.3754)
+
+[node name="stone_tallE22" parent="Mountains" instance=ExtResource("6_de735")]
+transform = Transform3D(-18.5938, 0, 4.96237, 0, 20.6569, 0, -4.6015, 0, -20.052, -29.9348, 3.8147e-06, 32.424)
+
+[node name="stone_tallE23" parent="Mountains" instance=ExtResource("6_de735")]
+transform = Transform3D(-11.7074, 0, -10.3593, 0, 14.0192, 0, 10.3593, 0, -11.7074, -27.4131, 3.8147e-06, 21.1481)
+
+[node name="stone_tallE24" parent="Mountains" instance=ExtResource("6_de735")]
+transform = Transform3D(-18.0791, 0, -3.12662, 0, 20.6569, 0, 2.44889, 0, -23.0825, -44.3539, 3.8147e-06, -9.01081)
+
+[node name="stone_tallE25" parent="Mountains" instance=ExtResource("6_de735")]
+transform = Transform3D(-16.7092, 0, 4.1351, 0, 17.2132, 0, -4.1351, 0, -16.7092, -40.262, 3.8147e-06, 3.11525)
+
+[node name="stone_tallG9" parent="Mountains" instance=ExtResource("17_sptrd")]
+transform = Transform3D(-15.039, 0, 3.72178, 0, 15.4927, 0, -3.72178, 0, -15.039, -38.2634, 3.8147e-06, 14.5004)
+
+[node name="stone_tallG10" parent="Mountains" instance=ExtResource("17_sptrd")]
+transform = Transform3D(3.65258, 0, -14.6062, 0, 9.85662, 0, 14.6062, 0, 3.65258, -5.47516, 3.8147e-06, 40.995)
+
+[node name="stone_tallE26" parent="Mountains" instance=ExtResource("6_de735")]
+transform = Transform3D(-7.07136, 0, -25.1386, 0, 26.1143, 0, 25.1386, 0, -7.07136, 42.1077, 3.8147e-06, 17.0787)
+
+[node name="stone_tallE27" parent="Mountains" instance=ExtResource("6_de735")]
+transform = Transform3D(-6.55713, 0, -25.1386, 0, 26.1142, 0, 23.3105, 0, -7.07136, 33.8244, 3.8147e-06, 32.6672)
+
+[node name="stone_tallE28" parent="Mountains" instance=ExtResource("6_de735")]
+transform = Transform3D(12.6218, 0, -15.2068, 0, 17.7229, 0, 15.2068, 0, 12.6218, 19.6774, 3.8147e-06, 29.0303)
+
+[node name="stone_tallE29" parent="Mountains" instance=ExtResource("6_de735")]
+transform = Transform3D(2.37202, 0, -29.291, 0, 26.1142, 0, 22.9419, 0, 3.02848, -19.107, 3.8147e-06, 49.2311)
+
+[node name="stone_tallE30" parent="Mountains" instance=ExtResource("6_de735")]
+transform = Transform3D(-5.89251, 0, -20.9478, 0, 21.7608, 0, 20.9478, 0, -5.89251, -3.62151, 3.8147e-06, 44.5453)
+
+[node name="stone_tallG11" parent="Mountains" instance=ExtResource("17_sptrd")]
+transform = Transform3D(-5.30352, 0, -18.854, 0, 19.5857, 0, 18.854, 0, -5.30352, 10.8441, 3.8147e-06, 42.4748)
+
+[node name="stone_tallG12" parent="Mountains" instance=ExtResource("17_sptrd")]
+transform = Transform3D(18.6018, 0, 4.0317, 0, 12.4606, 0, -4.0317, 0, 18.6018, 45.6315, 3.8147e-06, 2.10346)
+
+[node name="grass" parent="." instance=ExtResource("18_vy46d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.3006, 0, 21.3818)
+
+[node name="Pivot" type="Node3D" parent="."]
+script = ExtResource("19_shing")
+
+[node name="Camera3D" type="Camera3D" parent="Pivot"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 4.02422, 6.1393)
+current = true
+
+[node name="ShotLinear" type="Node3D" parent="."]
+
+[node name="Point1" type="Node3D" parent="ShotLinear"]
+transform = Transform3D(0.999391, -0.00033228, -0.0348955, 0, 0.999955, -0.00952172, 0.0348971, 0.00951592, 0.999346, -0.0380773, 0.545262, -2.57753)
+
+[node name="Point2" type="Node3D" parent="ShotLinear"]
+transform = Transform3D(0.999962, 0.0070315, -0.0051643, 0, 0.59195, 0.805975, 0.00872422, -0.805944, 0.591928, -0.356044, 21.7447, 16.2706)
+
+[node name="Camera3D" type="Camera3D" parent="ShotLinear" node_paths=PackedStringArray("point1", "point2")]
+script = ExtResource("20_c0ler")
+point1 = NodePath("../Point1")
+point2 = NodePath("../Point2")
+
+[editable path="CharacterWithSelectionCircle/Peasant Nolant(Free Version)"]
+[editable path="CharacterWithSelectionCircle2/Peasant Nolant(Free Version)"]
