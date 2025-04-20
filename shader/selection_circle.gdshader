@@ -1,4 +1,5 @@
 shader_type spatial;
+render_mode unshaded;
 
 uniform float radius : hint_range(0, 10) = 0.2;
 uniform float thickness : hint_range(0.01, 1.0) = 0.02;
@@ -8,7 +9,7 @@ void fragment() {
 	ALBEDO = COLOR.rgb;
 	
 	// offset depth to prevent z-fighting
-	DEPTH = FRAGCOORD.z - 1e-5;
+	DEPTH = FRAGCOORD.z - 1e-7;
 	
 	// calculate distance to vertex center in world frame
 	vec3 world_pos = (INV_VIEW_MATRIX * vec4(VERTEX, 1.0)).xyz;

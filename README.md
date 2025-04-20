@@ -1,5 +1,5 @@
 ﻿# RTS Selection Circle Demo in Godot 4
-A small demo scene to showcase an RTS selection circle shader with configurable radius and thickness. The scene was developed in godot 4.1.1
+A small demo scene to showcase an RTS selection circle shader with configurable radius and thickness.
 
 ![Thumbnail](https://github.com/trflorian/rts-selection-circle-demo/assets/27728267/88fee55e-5d67-4a88-9444-301d8572ef66)
 
